@@ -1,0 +1,36 @@
+Linha para instalar o yarn:
+npm install -g yarn
+
+para inicializaro yarn no projeto:
+yarn init
+
+configuração de dependências
+yarn add express - express biblioteca que facilita
+a criação de apis rest
+
+configuração de dependências de desenvolvimento
+yarn add -D typescript @types/express ts-node-dev
+@types/express - faz a instalação da integração
+do typescript junto com a biblioteca express
+ts-node-dev: transpila o arquivo typescript para
+javascript, é recomendado somente em ambiente de 
+desenvolvimento não em produção, o ideal é
+converter os arquivos em typescript para javascript
+e depois executar
+
+Estruturação das pastas:
+criação da pasta src, dentro dela
+    criar pasta server(código do sevidor), dentro 
+    dela:
+        criar arquivo Serve.ts código base do 
+        servidor express
+    criar arquivo index.ts(arquivo principal da
+aplicação);
+
+Rodando o projeto no terminal
+yarn ts-node-dev ./src/index.ts
+
+criando a estrutura do git
+criar um arquivo .gitignore e colocar nele a pasta node_modules,
+assim:
+/node_modules
