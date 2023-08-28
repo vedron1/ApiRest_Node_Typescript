@@ -34,3 +34,6 @@ criando a estrutura do git
 criar um arquivo .gitignore e colocar nele a pasta node_modules,
 assim:
 /node_modules
+
+Configurando o eslint
+npx eslint --init
