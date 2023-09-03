@@ -1,15 +1,18 @@
 // código base do servidor express
 import express from 'express';
 
+//poder utilizar as variáveis de ambiente no projeto
+import 'dotenv/config';
+
+import  { router } from './routes';
+
+//instãncia do express
 const server = express();
 
-interface Teste {
+// fala com o servidor para trabalhar com body de json
+server.use(express.json());
 
-}
-
-//método http
-server.get('/',(req,res)=>{ 
-  return res.send('Olá, dev!');
-});
+//server utilizando as rotas
+server.use(router);
 
 export {server};

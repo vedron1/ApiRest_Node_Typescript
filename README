@@ -37,3 +37,33 @@ assim:
 
 Configurando o eslint
 npx eslint --init
+
+facilitando o comando para rodar no terminal:
+ir no package.json e adicionar depois de "license"
+"scripts": {
+    "start": "ts-node-dev ./src/index.ts"
+  },
+depois no terminal digitar apena:
+yarn start
+
+instalação da biblioteca status-code
+yarn add http-status-codes
+é responsável por exibir junto na mensagem um código que o navedor
+interprete e possa exbir a resposta para o usuário
+instalando o pacote de tipagem 
+yarn add -D @types/http-status-code
+
+arquivo .env:
+  onde ficará as variáveis de 
+  ambiente;
+
+biblioteca para usar o arquivo .env
+yarn add dotenv
+colocar em Server:
+import 'dotenv/config';
+para poder usar as variáveis de 
+ambiente 
+
+comfigurando os arquivos typescript para javascript
+yarn tsc --init
+yarn tsc
