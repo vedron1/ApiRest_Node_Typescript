@@ -67,3 +67,28 @@ ambiente
 comfigurando os arquivos typescript para javascript
 yarn tsc --init
 yarn tsc
+
+jogando os arquivos em javascript numa 
+pasta determinada
+ir no arquivo tsconfig.json e alterar a outDir 
+para:
+"outDir": "./build"
+e a rootDir para:
+"rootDir": "./src",
+
+rodar os arquivos javascript no terminal
+node ./build/index.js
+
+o termo KISS na programação:
+keep
+it
+simple
+stupid
+mantenha isso simples e estúpido
+serve no desenvolvimento de um software
+para aumentar o foco, clareza e reduzir
+bugs no sistema
+
+instalação da biblioteca yup para validar
+dados da requisição:
+yarn add yup
