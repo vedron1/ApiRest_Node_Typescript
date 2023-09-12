@@ -92,3 +92,13 @@ bugs no sistema
 instalação da biblioteca yup para validar
 dados da requisição:
 yarn add yup
+
+Resolvendo o problema do SchemaOf:
+Trocar o SchemaOf para ObjectSchema no import
+poderá ter problemas na validação para o required() em parâmetros 
+opcionais assim não será preciso colocar o notRequired(), pode deixar
+nulo ou utilizar o optional() como solução
+
+no Insomnia para passar os parâmetros basta colocar ? e se quiser passar mais de um parâmetro basta colocar o &:
+http://localhost:3333/cidades?page=1&limit=3
+é chamado de query params

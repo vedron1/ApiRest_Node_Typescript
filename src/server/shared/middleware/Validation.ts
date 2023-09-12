@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { RequestHandler } from 'express';
+import { AnyObject, Maybe, ObjectSchema, ValidationError } from 'yup';
 import { StatusCodes } from 'http-status-codes';
-import { Schema, ValidationError } from 'yup';
 
 type TProperty = 'body'|'header'|'params'|'query';
 
-type TGetSchema = <T>(schema: Schema<T>) => Schema<T>;
+type TGetSchema = <T extends Maybe<AnyObject>>(schema: ObjectSchema<T>) => ObjectSchema<T>;
 
 // o type faz o IValidation retornar
 // uma RequestHandler
 
 type TGetAllSchemas = (getSchema: TGetSchema) => Partial<TAllSchemas>;
 
-type TAllSchemas = Record<TProperty, Schema<any>>;
+type TAllSchemas = Record<TProperty, ObjectSchema<any>>;
 
 //Partial faz que não precisa colocar os campos obrigatórios
 type TValidation = (getAllSchemas: TGetAllSchemas) => RequestHandler;
