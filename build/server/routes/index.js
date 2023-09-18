@@ -2,42 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express_1 = require("express");
-//importando a biblioteca http-status-code
-const http_status_codes_1 = require("http-status-codes");
+const controllers_1 = require("./../controllers");
 const router = (0, express_1.Router)();
 exports.router = router;
-router.get('/teste', (req, res) => {
+router.get('/', (req, res) => {
     return res.send('Olá dev');
 });
-//formas de receber dados do front-end:
-//console.log(req.body);//corpo da requisição
-//console.log(req.header);//parâmetros únicos com String, 
-// boolean, etc
-//console.log(req.params);// parâmetros que recebe no endpoint 
-// valores simples. Exemplo de params
-// router.post('/teste/:id', (req,res) => {
-//   console.log(req.params.id);
-// });
-//console.log(req.query)
-// na url do navedor
-// router.post('/teste?teste = 123', (req,res) => {
-//   console.log(req.query);
-// });
-//no insomnia:
-// router.post('/teste', (req,res) => {
-//   console.log(req.query.teste);
-// });
-// colocar na url do insomnia ...teste?teste=123
-//console.log(req.cookies)
-// router.post('/teste', (req,res) => {
-//   console.log(req.cookies);
-// });
-router.post('/teste', (req, res) => {
-    console.log(req.body);
-    //return res.send('Hello world');
-    //return res.send(req.body);
-    //json() front-end trabalhe melhor na tratando as 
-    //respostas em json:
-    // return res.json(req.body);
-    return res.status(http_status_codes_1.StatusCodes.UNAUTHORIZED).json(req.body);
-});
+router.get('/cidades', controllers_1.CidadesController.getAllValidation, controllers_1.CidadesController.getAll);
+router.get('/cidades/:id', controllers_1.CidadesController.getByIdValidation, controllers_1.CidadesController.getById);
+router.post('/cidades', controllers_1.CidadesController.createValidator, controllers_1.CidadesController.create);
+router.put('/cidades/:id', controllers_1.CidadesController.updateByIdValidation, controllers_1.CidadesController.updateById);
+router.delete('/cidades/:id', controllers_1.CidadesController.deleteByIdValidation, controllers_1.CidadesController.deleteById);

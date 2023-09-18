@@ -102,3 +102,44 @@ nulo ou utilizar o optional() como solução
 no Insomnia para passar os parâmetros basta colocar ? e se quiser passar mais de um parâmetro basta colocar o &:
 http://localhost:3333/cidades?page=1&limit=3
 é chamado de query params
+
+Teste de Integração: tem uma cobertura que testa os endpoints, a chamada deles, controller, a inserção do dado no bando de dados e a resposta da API
+
+instalando a biblioteca para teste:
+yarn add jest ts-jest @types/jest
+jest é o responsável pelos casos de teste, ações para antes da execução dos testes e verificação dos resultados esperados dos testes 
+ts-jest integra o jest com o typescript
+
+inicializando a configuração do jest no projeto:
+yarn jest --init
+
+alterando o arquivo jest.config.ts
+descomentar o converageReporters e utilizar somente o json;
+descomentar setupFilesAfterEnv e adicionar:
+'./tests/jest.setup.ts'
+e criar a pasta tests e o arquivo jest.setup.ts fora da src
+descomentar testMatch e apagar o conteúdo dele e adicionar
+'<rootDir>/tests/**/*.test.ts' é o local onde será encontrado os arquivos de testes
+
+descomentar o transform: undefined
+e colocar:
+ transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest'
+  },
+
+instalando a biblioteca de supertest
+yarn add -D supertest -D supertest @types/supertest
+supertest pega o servidor em sua totalidade e o testa
+
+adicionar no tsconfin.json 
+
+{
+  "compilerOptions": {
+  },
+  "exclude": [
+    "./jest.config.ts",
+    "./node_modules",
+    "./tests",
+    "./build"
+  ]
+}

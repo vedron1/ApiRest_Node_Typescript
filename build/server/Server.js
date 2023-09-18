@@ -8,6 +8,7 @@ exports.server = void 0;
 const express_1 = __importDefault(require("express"));
 //poder utilizar as variáveis de ambiente no projeto
 require("dotenv/config");
+require("./shared/services/TranslationsYup");
 const routes_1 = require("./routes");
 //instãncia do express
 const server = (0, express_1.default)();
