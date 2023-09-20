@@ -143,3 +143,6 @@ adicionar no tsconfin.json
     "./build"
   ]
 }
+
+para rodar os teste basta colocar no terminal:
+yarn test
