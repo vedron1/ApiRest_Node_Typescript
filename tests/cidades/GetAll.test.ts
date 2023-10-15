@@ -1,5 +1,5 @@
-import { StatusCodes } from "http-status-codes";
-import { testServer } from "../jest.setup"
+import { StatusCodes } from 'http-status-codes';
+import { testServer } from '../jest.setup';
 
 describe('Cidades - GetAll', async() => {
   const rest1 = await testServer
@@ -13,6 +13,6 @@ describe('Cidades - GetAll', async() => {
     .send();
 
   expect(Number(resBuscada.header['x-total-count'])).toBeGreaterThan(0);
-  expect(resBuscada.statusCode).toEqual(StatusCodes.Ok);
-  expect(resBuscada.body.length)
-})
+  expect(resBuscada.statusCode).toEqual(StatusCodes.OK);
+  expect(resBuscada.body.length).toBeGreaterThan(0);
+});

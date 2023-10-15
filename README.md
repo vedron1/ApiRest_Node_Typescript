@@ -146,3 +146,18 @@ adicionar no tsconfin.json
 
 para rodar os teste basta colocar no terminal:
 yarn test
+
+Iniciando um deploy:
+apagar a pasta build
+fazendo o heroku criar o build:
+ir no arquivo package.json e colocar nos 
+scripts:
+  "postinstall": "tsc",
+  "production": "node ./build/index.js",
+e no terminal rodar yarn build
+criar no package.json o objeto:
+"engines": {
+  "node": "16.x"
+}
+faz que o heroku utilize a versão desejada do node
+
